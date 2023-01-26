@@ -28,4 +28,14 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    #- run: npm test
+
+    - name: Git-setting
+      run: |
+        git config --global user.email "g@g.com"
+        git config --global user.name "actions"
+    - name: Commit and Push
+      run: |
+        git commit -m "auto build" -a
+        git pull
+        git push origin master
+
