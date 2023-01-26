@@ -3,6 +3,7 @@
         "index.ejs",
         "script.js",
         "global-style.css",
-        "style.css"
+        "style.css",
+        "img/users.svg"
     ]
 }
