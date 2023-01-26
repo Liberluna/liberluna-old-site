@@ -4,8 +4,8 @@
         "script.js",
         "global-style.css",
         "style.css",
-        "img/users.svg"
-        "img/scroll.svg"
+        "img/users.svg",
+        "img/scroll.svg",
         "img/keiji-icon.svg"
     ]
 }
