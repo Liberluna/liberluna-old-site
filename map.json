@@ -1,6 +1,6 @@
 {
     "files":[
-        "index.html",
+        "index.ejs",
         "script.js",
         "global-style.css",
         "style.css"
