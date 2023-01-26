@@ -35,6 +35,7 @@ jobs:
         git config --global user.name "actions"
     - name: Commit and Push
       run: |
+        git add -A
         git commit -m "auto build" -a
         git pull
         git push origin master
