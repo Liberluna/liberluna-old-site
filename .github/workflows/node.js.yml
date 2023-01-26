@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Ejs build
 
 on:
   push:
@@ -31,12 +31,11 @@ jobs:
 
     - name: Git-setting
       run: |
-        git config --global user.email "g@g.com"
-        git config --global user.name "actions"
+        git config --global user.email "build@actions.com"
+        git config --global user.name "build"
     - name: Commit and Push
       run: |
         git add -A
         git commit -m "auto build" -a
         git pull
         git push origin master
-
