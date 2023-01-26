@@ -13,7 +13,7 @@ for(const file of files){
         views:"./src",
         strict:true
     }, (err, str)=>{
-        fs.writeFile(`dist/${file}`,str,(err)=>{
+        fs.writeFile(`dist/${file.replaceAll('.ejs','.html')}`,str,(err)=>{
             console.error(err);
         });
     });
