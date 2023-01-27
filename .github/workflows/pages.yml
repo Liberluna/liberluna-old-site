@@ -41,3 +41,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: node build.js
+      - name: Git-update
+        run: |
+          git config --global user.email "build@actions.com"
+          git config --global user.name "build"
+          git add -A
+          git commit -m "auto build" -a
+          git pull
+          git push origin master
