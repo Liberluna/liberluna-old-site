@@ -7,3 +7,13 @@
         });
     });
 })();
+setInterval(()=>{
+    if(window.scrollY>0){
+        if(document.getElementById("header").hidden){
+            document.getElementById("header").hidden=false;
+        }
+
+    }else if(!document.getElementById("header").hidden){
+        document.getElementById("header").hidden=true;
+    }
+},100)
