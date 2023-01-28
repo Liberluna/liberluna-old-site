@@ -11,7 +11,7 @@ for(const file of files){
     console.log(file,dir,isdir)
     if(!isdir){
         console.log('make','./dist'+dir);
-        fs.mkdirSync(dir,{recursive:true},()=>{})
+        fs.mkdirSync('./dist'+dir,{recursive:true},()=>{})
     }
     if(file.slice(-4)!==".ejs"){
       //console.log("not ejs")
