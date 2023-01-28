@@ -7,7 +7,7 @@ for(const file of files){
     if(dir[0]!=="/"){
         dir="/"+dir;
     }
-    const isdir=fs.existsSync(dir);
+    const isdir=fs.existsSync('dist'+dir);
     console.log(file,dir,isdir)
     if(!isdir){
         console.log('make','dist'+dir);
