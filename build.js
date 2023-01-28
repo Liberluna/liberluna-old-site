@@ -8,7 +8,7 @@ for(const file of files){
     console.log(file,dir,isdir)
     if(!isdir){
         console.log('make',dir);
-        fs.mkdirSync(dir,{recursive:true})
+        fs.mkdirSync(dir,{recursive:true},()=>{})
     }
     if(file.slice(-4)!==".ejs"){
       //console.log("not ejs")
