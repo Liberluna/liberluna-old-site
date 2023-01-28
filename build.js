@@ -3,7 +3,10 @@ const fs = require('fs');
 
 const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
 for(const file of files){
-    const dir=file.split("/").slice(0,-1).join("/");
+    let dir=file.split("/").slice(0,-1).join("/");
+    if(dir===""){
+        dir="/";
+    }
     const isdir=fs.existsSync(dir);
     console.log(file,dir,isdir)
     if(!isdir){
