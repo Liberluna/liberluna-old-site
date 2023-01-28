@@ -45,9 +45,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - run: |
-        git config --global user.email "build@actions.com"
-        git config --global user.name "build"
-        git pull
+          git config --global user.email "build@actions.com"
+          git config --global user.name "build"
+          git pull
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
