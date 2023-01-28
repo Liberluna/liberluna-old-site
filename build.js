@@ -1,8 +1,9 @@
 const ejs = require('ejs');
 const fs = require('fs');
 
-const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
-(async()=>{
+
+const build=async()=>{
+    const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
     for(const file of files){
         //console.log(file)
         const dir=file.split("/").slice(0,-1).join("/");
@@ -22,4 +23,10 @@ const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
             });
         });
     }
-})();
+}
+if(require.main === module){
+    console.log("Building..");
+    build();
+}
+    
+module.exports= build;
