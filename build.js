@@ -4,7 +4,7 @@ const fs = require('fs');
 const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
 (async()=>{
     for(const file of files){
-        console.log(file)
+        //console.log(file)
         const dir=file.split("/").slice(0,-1).join("/");
         if(!fs.existsSync(`dist/${dir}`)){
             fs.mkdirSync(`dist/${dir}`,{ recursive:true})
@@ -18,7 +18,7 @@ const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
             strict:true
         }, (err, str)=>{
             fs.writeFile(`dist/${file.replaceAll('.ejs','.html')}`,str,(err)=>{
-                console.error(err);
+                //console.error(err);
             });
         });
     }
