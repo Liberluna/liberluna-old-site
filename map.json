@@ -6,6 +6,8 @@
         "style.css",
         "img/users.svg",
         "img/scroll.svg",
-        "img/keiji-icon.svg"
+        "img/keiji-icon.svg",
+        "404.ejs",
+        "members/index.ejs"
     ]
 }
