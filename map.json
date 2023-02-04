@@ -8,6 +8,7 @@
         "img/scroll.svg",
         "img/keiji-icon.svg",
         "404.ejs",
-        "members/index.ejs"
+        "members/index.ejs",
+        "img/credits.json"
     ]
 }
