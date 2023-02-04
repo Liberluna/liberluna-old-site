@@ -9,6 +9,7 @@
         "img/keiji-icon.svg",
         "404.ejs",
         "members/index.ejs",
-        "img/credits.json"
+        "img/credits.json",
+        "style.scss"
     ]
 }

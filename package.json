@@ -13,6 +13,7 @@
   "dependencies": {
     "ejs": "^3.1.8",
     "jsdom": "^21.1.0",
-    "mime-types": "^2.1.35"
+    "mime-types": "^2.1.35",
+    "node-sass": "^8.0.0"
   }
 }

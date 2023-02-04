@@ -28,7 +28,10 @@ const server = http.createServer(async(req,res)=>{
   }
   const basefilepath=filepath.replace("./dist/","");
   
-  await build([basefilepath,basefilepath.replaceAll(".html",".ejs")])
+  await build([basefilepath,
+               basefilepath.replaceAll(".html",".ejs"),
+               basefilepath.replaceAll(".css",".scss")
+              ])
   res.writeHead(200,{'Content-Type':mime.lookup(filepath)});
   res.end(filedata);
 });
