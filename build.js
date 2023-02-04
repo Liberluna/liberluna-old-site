@@ -3,8 +3,11 @@ const fs = require('fs');
 const {JSDOM}=require('jsdom')
 const mime = require('mime-types')
 
-const build=async()=>{
-    const files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
+const build=async(paths)=>{
+    let files=JSON.parse(fs.readFileSync('map.json',"utf8")).files;
+    if(paths){
+      files=paths;
+    }
     for(const file of files){
         const dir=file.split("/").slice(0,-1).join("/");
         if(!fs.existsSync(`dist/${dir}`)){
