@@ -12,7 +12,7 @@
 
       </div>
       <script>
-        const membersData=JSON.parse('<%- include("./members.json") %>').members;
+        const membersData=JSON.parse(`<%- include("./members.json") %>`).members;
         for(const name of Object.keys(membersData)){
           const info=membersData[name];
           const memberElem=document.createElement("div");
