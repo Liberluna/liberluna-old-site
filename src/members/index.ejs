@@ -12,7 +12,9 @@
 
       </div>
       <script>
-        const membersData=JSON.parse(`<%- include("./members.json") %>`).members;
+      (async()=>{
+        const membersFetch=await fetch("https://raw.githubusercontent.com/Hacker-s-Official/mainpage/master/src/members/members.json");
+        const membersData=await membersFetch.json();//JSON.parse(`<%- include("./members.json") %>`).members;
         for(const name of Object.keys(membersData)){
           const info=membersData[name];
           const memberElem=document.createElement("div");
@@ -22,10 +24,11 @@
             <div><img alt="${name}-icon" src="${info.icon}"></div>
             <div style="font-size:1.2em">${name}</div>
             <div style="font-size:0.8em">${info.skills}</div>
-            <div>${info.desc}</div>
+            <div>${info.desc.ja}</div>
           `;
           document.getElementById("members").appendChild(memberElem);
         }
+      })();
       </script>
     </body>
 </html>
