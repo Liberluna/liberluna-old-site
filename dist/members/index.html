@@ -15,7 +15,7 @@
       <script>
       (async()=>{
         const membersFetch=await fetch("https://raw.githubusercontent.com/Hacker-s-Official/mainpage/master/src/members/members.json");
-        const membersData=await membersFetch.json();//JSON.parse(`{
+        const membersData=await membersFetch.json().members;//JSON.parse(`{
     "members":{
         "A":{
             "skills":"C/C++/C#/TypeScript",
@@ -30,7 +30,9 @@
           const info=membersData[name];
           const memberElem=document.createElement("div");
           memberElem.style.width="30%";
-          memberElem.style.height="30%";
+          memberElem.style.minWidth="200px";
+          memberElem.style.maxWidth="100%";
+          memberElem.style.height=memberElem.clientHeight+"px";
           memberElem.innerHTML=`
             <div><img alt="${name}-icon" src="${info.icon}"></div>
             <div style="font-size:1.2em">${name}</div>
