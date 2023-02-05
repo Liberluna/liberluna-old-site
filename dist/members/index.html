@@ -13,7 +13,9 @@
 
       </div>
       <script>
-        const membersData=JSON.parse(`{
+      (async()=>{
+        const membersFetch=await fetch("https://raw.githubusercontent.com/Hacker-s-Official/mainpage/master/src/members/members.json");
+        const membersData=await membersFetch.json();//JSON.parse(`{
     "members":{
         "A":{
             "skills":"C/C++/C#/TypeScript",
@@ -33,10 +35,11 @@
             <div><img alt="${name}-icon" src="${info.icon}"></div>
             <div style="font-size:1.2em">${name}</div>
             <div style="font-size:0.8em">${info.skills}</div>
-            <div>${info.desc}</div>
+            <div>${info.desc.ja}</div>
           `;
           document.getElementById("members").appendChild(memberElem);
         }
+      })();
       </script>
     
 
