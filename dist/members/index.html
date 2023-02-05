@@ -13,7 +13,7 @@
 
       </div>
       <script>
-        const membersData=JSON.parse('{
+        const membersData=JSON.parse(`{
     "members":{
         "A":{
             "skills":"C/C++/C#/TypeScript",
@@ -23,7 +23,7 @@
         }
     }
 }
-').members;
+`).members;
         for(const name of Object.keys(membersData)){
           const info=membersData[name];
           const memberElem=document.createElement("div");
