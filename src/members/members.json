@@ -1,1 +1,10 @@
-{}
+{
+    "members":{
+        "A":{
+            "skills":"C/C++/C#/TypeScript",
+            "desc":{
+                "ja":"私はAです。よろしくお願いします。"
+            }
+        }
+    }
+}

@@ -4,11 +4,28 @@
         <%- include("../head.ejs") %>
         <title>Members - Tsukuyomi</title>
         <link rel="stylesheet" href="../global-style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-      <center id="Members">
-        <h1>Members</h1>
-      </center>
-      <script>const membersData="<%- include("./members.json") %>"</script>
+      <h1 style="text-align: center;">Members</h1>
+      <div id="members">
+
+      </div>
+      <script>
+        const membersData=JSON.parse('<%- include("./members.json") %>').members;
+        for(const name of Object.keys(membersData)){
+          const info=membersData[name];
+          const memberElem=document.createElement("div");
+          memberElem.style.width="30%";
+          memberElem.style.height="30%";
+          memberElem.innerHTML=`
+            <div><img alt="${name}-icon" src="${info.icon}"></div>
+            <div style="font-size:1.2em">${name}</div>
+            <div style="font-size:0.8em">${info.skills}</div>
+            <div>${info.desc}</div>
+          `;
+          document.getElementById("members").appendChild(memberElem);
+        }
+      </script>
     </body>
 </html>
