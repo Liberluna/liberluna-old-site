@@ -36,3 +36,4 @@ const server = http.createServer(async(req,res)=>{
   res.end(filedata);
 });
 server.listen(5000);
+console.log("Running server for http://localhost:5000")
