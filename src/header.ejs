@@ -22,7 +22,7 @@
 </style>
 <div id='header-main'>
     <a href="https://Liberluna.github.io/mainpage" style="color:#000" id="homelink">
-      <img src="img/Liberluna.svg" alt="Liberluna">
+      <img src="img/liberluna.svg" alt="Liberluna">
     </a>
     <button id="change-dark">
       <img src="img/darkmode.svg" id="dark" hidden>
@@ -38,7 +38,7 @@
       document.querySelector("#header-main #change-dark #light").hidden=localStorage.getItem("light")!=="true";
       const mode=localStorage.getItem("light")!=="true";
       document.querySelectorAll("*").forEach(e=>{
-        e.dark=mode;
+        e.dataset.dark=mode.toString();;
       })
     }
     document.querySelector("#header-main #change-dark").addEventListener('click',e=>{
