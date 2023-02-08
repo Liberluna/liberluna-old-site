@@ -5,6 +5,13 @@
             "desc":{
                 "ja":"私はAです。よろしくお願いします。"
             }
+        },
+        "nakasyou":{
+            "slills":"Python/JavaScript/TypeScript/Deno/Node.js/HTML&CSS/OakServer",
+            "icon":"./icon/nakasyou.png",
+            "desc":{
+                "ja":"nakasyouです。よろしくです。"
+            }
         }
     }
 }
