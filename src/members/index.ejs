@@ -23,7 +23,7 @@
           memberElem.style.maxWidth="100%";
           memberElem.style.height=memberElem.clientHeight+"px";
           memberElem.innerHTML=`
-            <div><img alt="${name}-icon" src="${info.icon}"></div>
+            <div><img alt="${name}-icon" src="${info.icon}" style="width:100%;height:100%;object-fit:cover;"></div>
             <div style="font-size:1.2em">${name}</div>
             <div style="font-size:0.8em">${info.skills}</div>
             <div>${info.desc.ja}</div>
