@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
+body{
+    font-family: 'Sawarabi Gothic', sans-serif;
+    overflow-wrap: break-word;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+}

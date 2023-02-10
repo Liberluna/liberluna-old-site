@@ -1,0 +1,9 @@
+# vscode history
+/.history/
+# Git files
+/.git/
+# Replit files
+/.upm/
+/.config/
+# node_modules
+/node_modules/
