@@ -1,8 +1,8 @@
-import { walk } from "https://deno.land/std/fs/walk.ts";
+import { walk } from "https://deno.land/std/fs/mod.ts";
 import oneBuild from "./builder/one-build.ts";
 
 (async()=>{
-  for(const file of walk("./src")){
+  for await (const file of walk("./src")){
     oneBuild(file);
   }
 })()
