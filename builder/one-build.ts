@@ -11,6 +11,7 @@ export default async function(file){
     path:file.path.replace("src","dist"),
   };
   dist.dir=dist.path.split("/").slice(0,-1).join("/");
+  file.dir=file.path.split("/").slice(0,-1).join("/");
   if(!await exists(dist.dir))
     await Deno.mkdir(dist.dir,{recursive:true});
   if(![
@@ -22,10 +23,18 @@ export default async function(file){
   }
   if(ext==="scss"){
     const compiler = sass(file.path);
+    dist.path=dist.path.slice(0,-4)+"css";
     Deno.writeTextFile(dist.path,compiler.to_string());
+    return;
   }
   if(ext==="ejs"){
-    dejs.renderFile
+    dist.path=dist.path.slice(0,-3)+"html";
+    Deno.writeTextFile(dist.path,await dejs.renderFileToString(file.path,{
+      include(path){
+        return Deno.readTextFileSync(`${file.dir}/${path}`)
+      }
+    }));
+    return;
   }
     /*const text=new String(await Deno.readTextFile(file.path));
     text.regMatch=function(regexp) {
