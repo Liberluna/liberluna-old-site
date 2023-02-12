@@ -42,7 +42,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: Pull
-        run: git pull
+        run: "git pull origin ${{ github.ref_name }}"
       - name: Build
         run: deno run -A build.ts
       - name : Push
