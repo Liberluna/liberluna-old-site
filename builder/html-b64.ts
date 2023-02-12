@@ -7,12 +7,12 @@ export default function(code: string,file):string{
   
   const cwd=Deno.cwd();
   const cwdURL=new URL('file://'+cwd);
-  console.log(cwdURL)
   doc.querySelectorAll('img').forEach(elem=>{
     console.log(elem.getAttribute('src'))
     if(elem.getAttribute("src")){
-      const base=new URL("./"+file.dir,import.meta.url).href;
+      const base=new URL("./"+file.dir,cwdURL).href;
       const path=new URL(elem.getAttribute("src"),base);
+      console.log(path)
       const b64=encode(Deno.readFileSync(path));
       const dataurl=`data:${mime.getType(path)};base64,${b64}`;
       elem.setAttribute("src",dataurl);
