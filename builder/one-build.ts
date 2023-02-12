@@ -30,14 +30,15 @@ export default async function(file){
     return;
   }
   if(ext==="ejs"){
-    let text=await Deno.readTextFile(file.path);
-    text=htmlB64(text,file);
+    let text: string=await Deno.readTextFile(file.path);
     dist.path=dist.path.slice(0,-3)+"html";
-    Deno.writeTextFile(dist.path,await dejs.renderToString(text,{
+    text=await dejs.renderToString(text,{
       include(path){
         return Deno.readTextFileSync(`${file.dir}/${path}`);
       }
-    }));
+    });
+    text=htmlB64(text,file);
+    await Deno.writeTextFile(dist.path,text);
     return;
   }
     /*const text=new String(await Deno.readTextFile(file.path));
