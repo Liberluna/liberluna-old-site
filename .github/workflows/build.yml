@@ -1,6 +1,9 @@
 name: Build and deploy to GitHub page
 on:
   push:
+    branches:
+      - '**'
+      - '!master'
 permissions:
   actions: write
   checks: write
@@ -21,7 +24,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/master'
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
