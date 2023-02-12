@@ -4,8 +4,9 @@ import { mime, mimelite } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts";
 
 export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code,'text/html');
-
+  
   doc.querySelectorAll('img').forEach(elem=>{
+    console.log(elem)
     if(elem.src){
       const base=new URL(file.dir).href;
       const path=new URL(elem.src,base);
