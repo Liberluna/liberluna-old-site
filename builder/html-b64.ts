@@ -6,6 +6,7 @@ export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code,'text/html');
   
   doc.querySelectorAll('img').forEach(elem=>{
+    console.log(elem.src)
     if(elem.src){
       console.log(elem.src)
       const base=new URL(file.dir).href;
