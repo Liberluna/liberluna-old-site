@@ -1,0 +1,19 @@
+{
+  "name": "mainpage",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node dev-server.js",
+    "start": "node dev-server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "jsdom": "^21.1.0",
+    "mime-types": "^2.1.35",
+    "node-sass": "^8.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 
 hidden = [".config", "package-lock.json"]
-run = "deno run -A build.ts"
+run = "npm run start"
 
 [[hints]]
 regex = "Error \\[ERR_REQUIRE_ESM\\]"
@@ -70,5 +70,8 @@ support = true
 
 [languages]
 
+[languages.javascript]
+pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 
-
+[languages.javascript.languageServer]
+start = "typescript-language-server --stdio"
