@@ -10,8 +10,7 @@ export default function(code: string,file):string{
   doc.querySelectorAll('img').forEach(elem=>{
     console.log(elem.getAttribute('src'))
     if(elem.getAttribute("src")){
-      const base=new URL("./"+file.dir,cwdURL).href;
-      console.log(base)
+      const base=new URL("./"+file.dir,cwdURL);
       const path=new URL(elem.getAttribute("src"),base);
       console.log(path)
       const b64=encode(Deno.readFileSync(path));
