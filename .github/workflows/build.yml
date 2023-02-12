@@ -1,9 +1,7 @@
 name: Build and deploy to GitHub page
 on:
   push:
-    branches: ["master"]
   pull_request:
-    branches: ["master"]
 
 permissions:
   actions: write
@@ -56,6 +54,7 @@ jobs:
           git push
           fi
   deploy:
+    if: contains(github.head_ref, 'master')
     needs: build
     environment:
       name: github-pages
