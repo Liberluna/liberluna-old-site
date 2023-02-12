@@ -6,13 +6,12 @@ export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code,'text/html');
   
   doc.querySelectorAll('img').forEach(elem=>{
-    console.log(elem.getAttribute('src'))
-    if(elem.src){
+    if(elem.getAttribute('src')){
       const base=new URL(file.dir).href;
-      const path=new URL(elem.src,base);
+      const path=new URL(elem.getAttribute("src"),base);
       const b64=encode(Deno.readFileSync(path));
       const dataurl=`data:${mime.getType(file.path)};base64,${b64}`;
-      elem.src=dataurl;
+      elem.setAttribute("src",dataurl);
     }
   });
   return doc.outerHTML;
