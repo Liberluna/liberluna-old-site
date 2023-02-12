@@ -6,7 +6,7 @@ export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code,'text/html');
   
   const cwd=Deno.cwd();
-  const cwdURL=new URL(cwd);
+  const cwdURL=new URL('file://'+cwd);
   console.log(cwdURL)
   doc.querySelectorAll('img').forEach(elem=>{
     console.log(elem.getAttribute('src'))
