@@ -6,13 +6,10 @@ export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code,'text/html');
   
   const cwd=Deno.cwd();
-  const cwdURL=new URL('file://'+cwd);
   doc.querySelectorAll('img').forEach(elem=>{
     console.log(elem.getAttribute('src'))
     if(elem.getAttribute("src")){
-      const base=new URL("./"+file.dir,cwdURL);
-      console.log(base)
-      const path=new URL(elem.getAttribute("src"),base);
+      const path=file.dir+''+elem.getAttribute('src')
       console.log(path)
       const b64=encode(Deno.readFileSync(path));
       const dataurl=`data:${mime.getType(path)};base64,${b64}`;
