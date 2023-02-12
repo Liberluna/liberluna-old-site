@@ -30,8 +30,21 @@ jobs:
           key: mainpage_deno_build
           path: |
             /home/runner/.cache/deno/
+      - name: Git config
+        run : |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      - name: Pull
+        run: git pull
       - name: Build
         run: deno run -A build.ts
+      - name : Push
+        run : |
+          if (git diff --shortstat | grep '[0-9]'); then \
+            git add .; \
+            git commit -m "Auto build by Deno"; \
+            git push\
+          fi
   deploy:
     needs: build
     environment:
