@@ -2,6 +2,8 @@ import sass from "https://deno.land/x/denosass/mod.ts";
 import { sha256 } from "https://denopkg.com/chiefbiiko/sha256@v1.0.0/mod.ts";
 import { exists } from "https://deno.land/std/fs/mod.ts";
 import * as dejs from "https://deno.land/x/dejs@0.10.3/mod.ts";
+import htmlB64 from "./html-b64.ts";
+
 export default async function(file){
   if(!file.isFile){
     return;
@@ -28,10 +30,12 @@ export default async function(file){
     return;
   }
   if(ext==="ejs"){
+    let text=await Deno.readTextFile(file.path);
+    text=htmlB64(text,file);
     dist.path=dist.path.slice(0,-3)+"html";
-    Deno.writeTextFile(dist.path,await dejs.renderFileToString(file.path,{
+    Deno.writeTextFile(dist.path,await dejs.renderToString(text,{
       include(path){
-        return Deno.readTextFileSync(`${file.dir}/${path}`)
+        return Deno.readTextFileSync(`${file.dir}/${path}`);
       }
     }));
     return;
