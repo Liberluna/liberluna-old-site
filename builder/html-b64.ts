@@ -16,5 +16,7 @@ export default function(code: string,file):string{
       elem.setAttribute("src",dataurl);
     }
   });
-  return doc.outerHTML;
+  const result=doc.outerHTML;
+  console.log(result)
+  return result;
 }
