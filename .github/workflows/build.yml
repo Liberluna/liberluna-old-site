@@ -1,0 +1,58 @@
+name: Build and deploy to GitHub page
+on:
+  push:
+    branches:
+      - '**'
+      - '!master'
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  issues: write
+  packages: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+      - name: Setup Deno
+        # uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@9db7f66e8e16b5699a514448ce994936c63f0d54
+        with:
+          deno-version: v1.x
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          key: mainpage_deno_build
+          path: |
+            /home/runner/.cache/deno/
+      - name: Git config
+        run : |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      - name: Pull
+        run: "git pull origin ${{ github.ref_name }}"
+      - name: Build
+        run: deno run -A build.ts
+      - name : Push
+        run : |
+          
+          if (git diff --shortstat | grep '[0-9]'); then
+          git add .
+          git commit -m "Auto build by Deno"
+          git push
+          fi
+
+        

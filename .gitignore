@@ -7,3 +7,5 @@
 /.config/
 # node_modules
 /node_modules/
+# Deno by Replit
+/.deno/
