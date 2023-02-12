@@ -6,7 +6,9 @@ export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code,'text/html');
   
   doc.querySelectorAll('img').forEach(elem=>{
-    if(elem.getAttribute('src')){
+    console.log(elem.getAttribute('src'))
+    if(elem.getAttribute("src")){
+      console.log(file.dir)
       const base=new URL(file.dir).href;
       const path=new URL(elem.getAttribute("src"),base);
       const b64=encode(Deno.readFileSync(path));
