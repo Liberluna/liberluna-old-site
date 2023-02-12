@@ -17,6 +17,6 @@ export default function(code: string,file):string{
     }
   });
   const result=doc.outerHTML;
-  console.log(doc.documentElement)
+  console.log(doc.documentElement.outerHTML)
   return result;
 }
