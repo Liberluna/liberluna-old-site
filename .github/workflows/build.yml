@@ -16,9 +16,6 @@ permissions:
   security-events: write
   statuses: write
   id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   build:
