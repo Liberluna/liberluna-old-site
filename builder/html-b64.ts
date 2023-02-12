@@ -1,6 +1,6 @@
 import {encode,decode} from "https://deno.land/std@0.97.0/encoding/base64.ts";
 import {DOMParser,Element,HTMLDocument} from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
-import { mime, mimelite } from "https://github.com/tyrenn/mimetypes/mod.ts"
+import { mime, mimelite } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts";
 
 export default function(code: string,file):string{
   const doc: HTMLDocument=new DOMParser().parseFromString(code);
