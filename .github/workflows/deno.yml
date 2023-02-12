@@ -32,8 +32,11 @@ jobs:
           deno-version: v1.x
       - name: Test
         run: |
+          echo 'deno info'
           deno info
+          echo 'pwd'
           pwd
-          cd ~
+          echo 'cd and ls'
+          cd /home/runner/.cache/deno/
           ls
           
