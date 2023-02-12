@@ -54,7 +54,7 @@ jobs:
           git push
           fi
   deploy:
-    if: contains(github.head_ref, 'master')
+    if: github.ref == 'refs/heads/master'
     needs: build
     environment:
       name: github-pages
