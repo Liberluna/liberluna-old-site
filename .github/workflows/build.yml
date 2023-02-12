@@ -40,6 +40,7 @@ jobs:
         run: deno run -A build.ts
       - name : Push
         run : |
+          git diff
           git add .
           git commit -m "Auto build by Deno"
           git push
