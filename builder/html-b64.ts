@@ -3,6 +3,7 @@ import {DOMParser,Element,HTMLDocument} from "https://deno.land/x/deno_dom/deno-
 import { mime, mimelite } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts";
 
 export default function(code: string,file):string{
+  console.log(code)
   const doc: HTMLDocument=new DOMParser().parseFromString(code);
 
   doc.querySelectorAll('img').forEach(elem=>{
