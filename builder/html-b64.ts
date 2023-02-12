@@ -8,7 +8,7 @@ export default function(code: string,file):string{
   doc.querySelectorAll('img').forEach(elem=>{
     console.log(elem.getAttribute('src'))
     if(elem.getAttribute("src")){
-      const base=new URL("./"+file.dir,Deno.cwd()).href;
+      const base=new URL("./"+file.dir,import.meta.url).href;
       const path=new URL(elem.getAttribute("src"),base);
       const b64=encode(Deno.readFileSync(path));
       const dataurl=`data:${mime.getType(file.path)};base64,${b64}`;
