@@ -7,7 +7,6 @@ export default function(code: string,file):string{
   
   const cwd=Deno.cwd();
   doc.querySelectorAll('img').forEach(elem=>{
-    console.log(elem.getAttribute('src'))
     if(elem.getAttribute("src")){
       const path=file.dir+'/'+elem.getAttribute('src')
       console.log(path)
