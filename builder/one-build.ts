@@ -8,14 +8,13 @@ export default async function(file){
   if(!file.isFile){
     return;
   }
-  console.log(file);
   const ext=file.path.split(".").at(-1);
   const dist={
     path:file.path.replace("src","dist"),
   };
   dist.dir=dist.path.split("/").slice(0,-1).join("/");
   file.dir=file.path.split("/").slice(0,-1).join("/");
-  if(!await exists(dist.dir))
+  if(!(await exists(dist.dir)))
     await Deno.mkdir(dist.dir,{recursive:true});
   if(![
     'scss',
