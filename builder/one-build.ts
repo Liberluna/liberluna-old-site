@@ -8,6 +8,7 @@ export default async function(file){
   if(!file.isFile){
     return;
   }
+  console.log(file);
   const ext=file.path.split(".").at(-1);
   const dist={
     path:file.path.replace("src","dist"),
