@@ -1,1 +1,6 @@
-#members{text-align:center;display:flex;flex-wrap:wrap;width:100%}
+#members {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
