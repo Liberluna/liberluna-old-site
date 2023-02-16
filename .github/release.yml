@@ -6,9 +6,9 @@ changelog:
     - title: Types Changes
       labels:
         - types
-    - title: Bug Fixes
+    - title: バグの修正
       labels:
         - bug
-    - title: Other Changes
+    - title: その他の変更点
       labels:
         - '*'
