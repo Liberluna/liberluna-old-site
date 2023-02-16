@@ -1,26 +1,49 @@
-name: NodeJS with Gulp
+name: Build by Gulp.js
 
 on:
   push:
-
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [14.x]
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        key: mainpage_build
+        path: |
+          ./node_mudules/
+    - name: Git config
+      run : |
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+    - name: Pull
+      run: "git pull origin ${{ github.ref_name }}"
     - name: Build
       run: |
         npm install
         gulp
+    - name : Push
+      run : |
+        if (git diff --shortstat | grep '[0-9]'); then
+        git add .
+        git commit -m "Auto build by Deno"
+        git push
+        fi
