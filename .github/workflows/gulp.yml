@@ -1,0 +1,52 @@
+name: Build by Gulp.js
+
+on:
+  push:
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Cache dependenciesuses
+      uses: actions/cache@v3
+      id: node_modules_cache_id
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      
+    - name: Git config
+      run : |
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+    - name: Pull
+      run: "git pull origin ${{ github.ref_name }}"
+    - name: Build
+      run: |
+        npm install
+        gulp
+    - name : Push
+      run : |
+        if (git diff --shortstat | grep '[0-9]'); then
+        git add .
+        git commit -m "Auto build by Gulp.js"
+        git push
+        fi
