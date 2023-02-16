@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const gutil = require('gulp-util');
 const sass = require('gulp-sass')(require('sass'));
 const ejs = require('gulp-ejs');
 const rename = require("gulp-rename");
