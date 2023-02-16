@@ -24,12 +24,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Cache Gradle packages
+    - name: Cache dependenciesuses
       uses: actions/cache@v3
+      id: node_modules_cache_id
+      env:
+        cache-name: cache-node-modules
       with:
-        key: mainpage_build
-        path: |
-          ./node_mudules/
+        path: node_modules
+        key: ${{ runner.os }}-npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      
     - name: Git config
       run : |
         git config --global user.name "${GITHUB_ACTOR}"
