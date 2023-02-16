@@ -1,9 +1,10 @@
 # MAINPAGE
 LIBERLUNAのメインページです。
 ## Build
-[Deno](https://deno.land)を使い、ビルドします。
+[Gulp](https://gulpjs.com)を使い、ビルドします。
 ```shell
-deno run -A build.ts
+npm i
+gulp
 ```
 `./src`フォルダの中身が`./dist`フォルダにビルドされます。
 ### Deploy
