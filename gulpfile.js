@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const merge = require('merge-stream');
 const sass = require('gulp-sass')(require('sass'));
 const ejs = require('gulp-ejs');
 const rename = require("gulp-rename");
@@ -9,24 +10,30 @@ const minifyInline = require('gulp-minify-inline');
 const htmlmin = require('gulp-htmlmin');
 
 gulp.task('default',()=>{ 
-  gulp.src('./src/**/*')
-    .pipe(gulp.dest('./dist'))
-  gulp.src('./src/**/*.scss')
-    .pipe(plumber())
-    .pipe(sass())
-    .pipe(gulp.dest('./dist'));
-  gulp.src('./src/**/*.ejs')
-    .pipe(plumber())
-    .pipe(ejs())
-    .pipe(img64())
-    .pipe(rename({extname: ".html"}))
-    .pipe(minifyInline())
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('./dist'));
-  gulp.src('./src/**/*.js')
-    .pipe(plumber())
-    .pipe(gulp.dest('./dist'));
-  gulp.src('./src/**/*.ts')
-    .pipe(typescript())
-    .pipe(gulp.dest('./dist'));
+  return merge(
+    gulp.src('./src/**/*')
+      .pipe(gulp.dest('./dist')),
+    
+    gulp.src('./src/**/*.scss')
+      .pipe(plumber())
+      .pipe(sass())
+      .pipe(gulp.dest('./dist')),
+    
+    gulp.src('./src/**/*.ejs')
+      .pipe(plumber())
+      .pipe(ejs())
+      .pipe(img64())
+      .pipe(rename({extname: ".html"}))
+      .pipe(minifyInline())
+      .pipe(htmlmin({ collapseWhitespace: true }))
+      .pipe(gulp.dest('./dist')),
+    
+    gulp.src('./src/**/*.js')
+      .pipe(plumber())
+      .pipe(gulp.dest('./dist')),
+    
+    gulp.src('./src/**/*.ts')
+      .pipe(typescript())
+      .pipe(gulp.dest('./dist')),
+  )
 });
