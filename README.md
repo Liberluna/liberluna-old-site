@@ -1,3 +1,4 @@
+[![Build by Gulp.js](https://github.com/Liberluna/mainpage/actions/workflows/gulp.yml/badge.svg)](https://github.com/Liberluna/mainpage/actions/workflows/gulp.yml)
 # MAINPAGE
 LIBERLUNAのメインページです。
 ## Build
