@@ -1,8 +1,7 @@
 {
   "devDependencies": {
-    "gulp": "^3.6.2",
-    "gulp-sass": "^5.1.0",
-    "gulp-util": "^3.0.8"
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0"
   },
   "dependencies": {
     "gulp-base64": "^0.1.3",
