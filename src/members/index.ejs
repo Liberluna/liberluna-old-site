@@ -15,27 +15,6 @@
       <div id="members">
 
       </div>
-      <script>
-      (async()=>{
-        const membersFetch=await fetch("https://raw.githubusercontent.com/liberluna/mainpage/master/src/members/members.json");
-        const membersData=(await membersFetch.json()).members;
-        for(const name of Object.keys(membersData)){
-          const info=membersData[name];
-          const memberElem=document.createElement("div");
-          memberElem.style.width="30%";
-          memberElem.style.minWidth="200px";
-          memberElem.style.maxWidth="100%";
-          //memberElem.style.height
-          memberElem.innerHTML=`
-            <div style="width:100%"><img alt="${name}-icon" src="${info.icon}" style="width:30%;"></div>
-            <div style="font-size:1.2em;font-weight:bold;">${name}</div>
-            <div>${info.role}</div>
-            <div style="font-size:0.8em">${info.skills}</div>
-            <div>${info.desc.ja}</div>
-          `;
-          document.getElementById("members").appendChild(memberElem);
-        }
-      })();
-      </script>
+      <script src="script.js"></script>
     </body>
 </html>
