@@ -14,7 +14,7 @@
             <div>${info.role}</div>
             <div style="font-size:0.8em">${info.skills}</div>
             <div>${info.desc.ja}</div>
-            <div id='SNSs'>
+            <div id='SNSs' style="background-color:#ffffff">
               <a href="https://github.com/${info.github}"><img src="../img/github-mark.svg" style="width:1.5em"></a>
               <a href="https://twitter.com/${info.twitter}"><img src="../img/twitter-logo.svg" style="width:1.5em"></a>
             </div>
