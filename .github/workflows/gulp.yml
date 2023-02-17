@@ -45,8 +45,6 @@ jobs:
         gulp
     - name : Push
       run : |
-        if (git diff --shortstat | grep '[0-9]'); then
         git add .
         git commit -m "Auto build by Gulp.js"
         git push ${{ github.ref_name }}
-        fi
