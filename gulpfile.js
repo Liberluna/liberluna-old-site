@@ -34,7 +34,8 @@ gulp.task('default',()=>{
     
     gulp.src('./src/**/*.ts')
       .pipe(typescript({
-        lib:["es2021"]
+        lib:["es2021"],
+        allowJs:true
       }))
       .pipe(gulp.dest('./dist')),
   )
