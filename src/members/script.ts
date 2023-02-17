@@ -15,8 +15,8 @@
             <div style="font-size:0.8em">${info.skills}</div>
             <div>${info.desc.ja}</div>
             <div id='SNSs'>
-              <a href="https://github.com/${info.github}"><img src="../img/github-mark.svg" style="width:1em"></a>
-              <a href="https://twitter.com/${info.twitter}"><img src="../img/twitter-icon.svg" style="width:1em"></a>
+              <a href="https://github.com/${info.github}"><img src="../img/github-mark.svg" style="width:1.5em"></a>
+              <a href="https://twitter.com/${info.twitter}"><img src="../img/twitter-logo.svg" style="width:1.5em"></a>
             </div>
           `;
           document.getElementById("members").appendChild(memberElem);
