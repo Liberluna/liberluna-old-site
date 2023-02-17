@@ -33,7 +33,10 @@ gulp.task('default',()=>{
       .pipe(gulp.dest('./dist')),
     
     gulp.src('./src/**/*.ts')
-      .pipe(typescript())
+      .pipe(typescript({
+        lib:["es2021","DOM"],
+        allowJs:true
+      }))
       .pipe(gulp.dest('./dist')),
   )
 });
