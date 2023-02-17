@@ -19,6 +19,9 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
+  call-workflow:
+      needs: [deploy]
+      uses: ./.github/workflows/gulp.yml
   deploy:
     environment:
       name: github-pages
@@ -27,11 +30,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Invoke workflow
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: Build by Gulp.js
-          token: ${{ secrets.TOKEN }}
       - name: pull
         run: |
           git pull origin master
