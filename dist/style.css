@@ -13,6 +13,9 @@
 [data-dark=true] h2 {
   color: rgb(45, 218, 241);
 }
+[data-dark=true] * {
+  color: #fff;
+}
 
 #main-title {
   color: #fff;
