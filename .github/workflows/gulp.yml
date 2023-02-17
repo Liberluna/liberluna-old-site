@@ -2,6 +2,7 @@ name: Build by Gulp.js
 
 on:
   push:
+  workflow_call:
 permissions:
   actions: write
   checks: write
