@@ -4,14 +4,17 @@
             "skills":"C/C++,Python(少し),Japanese,English,Kali,etc...",
             "desc":{
                 "ja":"ぽちです。主犯格してます。このグループの主です。よろです。"
-            }
+            },
+            "github":"Pochi-Liberluna"
         },
         "nakasyou":{
             "skills":"Python/JavaScript/TypeScript/Deno/Node.js/HTML&CSS/OakServer",
             "icon":"icon/nakasyou.png",
             "desc":{
                 "ja":"nakasyouです。よろしくです。"
-            }
+            },
+            "twitter":"nakasyou0",
+            "github":"nakasyou"
         }
     }
 }
