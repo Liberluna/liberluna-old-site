@@ -15,15 +15,12 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 16.x
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
     - name: Cache dependenciesuses
       uses: actions/cache@v3
       id: node_modules_cache_id
@@ -31,12 +28,13 @@ jobs:
         cache-name: cache-node-modules
       with:
         path: node_modules
-        key: ${{ runner.os }}-npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       
     - name: Git config
       run : |
-        git config --global user.name "${GITHUB_ACTOR}"
-        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
     - name: Pull
       run: "git pull origin ${{ github.ref_name }}"
     - name: Build
@@ -45,6 +43,8 @@ jobs:
         gulp
     - name : Push
       run : |
-        git add .
-        git commit -m "Auto build by Gulp.js"
-        git push ${{ github.ref_name }}
+        if (git diff --shortstat | grep '[0-9]'); then
+        git add .;
+        git commit -m "Auto build by Gulp.js";
+        git push origin HEAD:${GITHUB_REF};
+        fi
