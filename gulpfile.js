@@ -8,6 +8,7 @@ const img64 = require('gulp-img64');
 const typescript = require('gulp-typescript');
 const minifyInline = require('gulp-minify-inline');
 const htmlmin = require('gulp-htmlmin');
+const uglify = require('gulp-uglify-es').default;
 
 gulp.task('default',()=>{ 
   return merge(
@@ -30,6 +31,7 @@ gulp.task('default',()=>{
     
     gulp.src('./src/**/*.js')
       .pipe(plumber())
+      .pipe(uglify())
       .pipe(gulp.dest('./dist')),
     
     gulp.src('./src/**/*.ts')
@@ -37,6 +39,7 @@ gulp.task('default',()=>{
         lib:["es2021","DOM"],
         allowJs:true
       }))
+      .pipe(uglify())
       .pipe(gulp.dest('./dist')),
   )
 });
