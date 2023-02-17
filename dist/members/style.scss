@@ -4,3 +4,13 @@
     flex-wrap: wrap;
     width:100%
 }
+[data-dark="true"]{
+    body {
+        background-color:#15202B;
+        color:#ffffff;
+    }
+}
+body {
+        background-color:#ffffff;
+        color:#000000;
+}
