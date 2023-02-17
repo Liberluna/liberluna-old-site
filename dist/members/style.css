@@ -2,7 +2,8 @@
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 100% div;
+  width-text-align: center;
 }
 
 [data-dark=true] body {
