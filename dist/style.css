@@ -16,6 +16,19 @@
 [data-dark=true] * {
   color: #fff;
 }
+[data-dark=true] #dark-logo {
+  display: block;
+}
+[data-dark=true] #light-logo {
+  display: none;
+}
+
+[data-dark=false] #dark-logo {
+  display: none;
+}
+[data-dark=false] #light-logo {
+  display: block;
+}
 
 #main-title {
   color: #fff;
