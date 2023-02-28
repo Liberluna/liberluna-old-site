@@ -1,1 +1,22 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(o,i){function a(e){try{c(r.next(e))}catch(e){i(e)}}function l(e){try{c(r.throw(e))}catch(e){i(e)}}function c(e){var t;e.done?o(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(a,l)}c((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,o,i,a={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function l(l){return function(c){return function(l){if(n)throw new TypeError("Generator is already executing.");for(;i&&(i=0,l[0]&&(a=0)),a;)try{if(n=1,r&&(o=2&l[0]?r.return:l[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,l[1])).done)return o;switch(r=0,o&&(l=[2&l[0],o.value]),l[0]){case 0:case 1:o=l;break;case 4:return a.label++,{value:l[1],done:!1};case 5:a.label++,r=l[1],l=[0];continue;case 7:l=a.ops.pop(),a.trys.pop();continue;default:if(!(o=a.trys,(o=o.length>0&&o[o.length-1])||6!==l[0]&&2!==l[0])){a=0;continue}if(3===l[0]&&(!o||l[1]>o[0]&&l[1]<o[3])){a.label=l[1];break}if(6===l[0]&&a.label<o[1]){a.label=o[1],o=l;break}if(o&&a.label<o[2]){a.label=o[2],a.ops.push(l);break}o[2]&&a.ops.pop(),a.trys.pop();continue}l=t.call(e,a)}catch(e){l=[6,e],r=0}finally{n=o=0}if(5&l[0])throw l[1];return{value:l[0]?l[1]:void 0,done:!0}}([l,c])}}};__awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(e){return document.getElementById("scroll-to").addEventListener("click",(function(e){window.scroll({top:document.getElementById("title-zone").offsetHeight,behavior:"smooth"})})),[2]}))})),setInterval((function(){window.scrollY>0?document.getElementById("header").hidden&&(document.getElementById("header").hidden=!1):document.getElementById("header").hidden||(document.getElementById("header").hidden=!0)}),100);
+'use strict';
+(async ()=>{
+    document.getElementById('scroll-to').addEventListener("click",e=>{
+        window.scroll({
+            top:document.getElementById("title-zone").offsetHeight,
+            behavior: 'smooth'
+        });
+    });
+})();
+setInterval(()=>{
+    if(window.scrollY>0){
+        if(document.getElementById("header").hidden){
+            document.getElementById("header").hidden=false;
+        }
+
+    }else if(!document.getElementById("header").hidden){
+        document.getElementById("header").hidden=true;
+    }
+},100)
+document.querySelectorAll("#about").forEach(elem=>{
+    window.orderChars(elem);
+});
