@@ -70,3 +70,24 @@
     setTimeout(getLightChange,100);
   })()
 </script>
+<script>
+window.orderChars=(elem)=>{
+  let only = false;
+  elem.dataset.targetText=elem.textContent;
+  function nextChar(){
+    if(elem.dataset.targetText===elem.textContent)return;
+    const updateSpeed=1000/elem.dataset.targetText.length;
+    let updateChar=1;
+    elem.textContent+=elem.dataset.targetText.slice(elem.textContent.length,elem.textContent.length+updateChar);
+    
+    setTimeout(nextChar,updateSpeed);
+  }
+  window.addEventListener('scroll',()=>{
+    if(elem.getBoundingClientRect().top<window.innerHeight && !only){
+      only = true;
+      elem.textContent="";
+      setTimeout(nextChar,20);
+    }
+  });
+}
+</script>
