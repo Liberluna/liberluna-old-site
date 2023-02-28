@@ -17,3 +17,6 @@ setInterval(()=>{
         document.getElementById("header").hidden=true;
     }
 },100)
+document.querySelectorAll("#about").forEach(elem=>{
+    window.orderChars(elem);
+});
