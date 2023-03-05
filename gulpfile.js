@@ -47,6 +47,6 @@ gulp.task('default',()=>{
     }).pipe(sitemap({
       siteUrl:"https://liberluna.github.io",
     }))
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest("./dist")),
   )
 });
