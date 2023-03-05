@@ -9,6 +9,7 @@ const typescript = require('gulp-typescript');
 const minifyInline = require('gulp-minify-inline');
 const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify-es').default;
+const sitemap = require('gulp-sitemap');
 
 gulp.task('default',()=>{ 
   return merge(
@@ -41,5 +42,11 @@ gulp.task('default',()=>{
       }))
       .pipe(uglify())
       .pipe(gulp.dest('./dist')),
+    gulp.src('./dist/**/*.html',{
+      read:false,
+    }).pipe(sitemap({
+      siteUrl:"https://liberluna.github.io",
+    }))
+    .pipe(gulp.dest("./dist"));
   )
 });
