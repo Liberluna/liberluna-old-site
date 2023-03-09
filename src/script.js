@@ -16,7 +16,8 @@ setInterval(()=>{
     }else if(!document.getElementById("header").hidden){
         document.getElementById("header").hidden=true;
     }
-},100)
+},100)/*
 document.querySelectorAll("#about").forEach(elem=>{
     window.orderChars(elem);
 });
+*/
